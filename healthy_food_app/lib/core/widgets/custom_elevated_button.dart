@@ -13,7 +13,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Color colorButton;
   final Color colorText;
   final String name;
-  final void Function() onPressed;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {

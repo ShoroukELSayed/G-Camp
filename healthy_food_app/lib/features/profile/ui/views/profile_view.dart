@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:healthy_food_app/features/auth/ui/views/login_view.dart';
 import 'package:healthy_food_app/features/profile/ui/widgets/profile_details.dart';
 import 'package:healthy_food_app/features/profile/ui/widgets/settings_option.dart';
 
@@ -46,6 +47,9 @@ class ProfileView extends StatelessWidget {
             SettingsOption(
               option: 'Log out',
               icon: Icons.logout,
+              onTap: () {
+                Navigator.pushNamed(context, LoginView.id);
+              },
             ),
             SettingsOption(
               option: 'Deleat Account',

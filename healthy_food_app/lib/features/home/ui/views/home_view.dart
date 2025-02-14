@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:healthy_food_app/features/home/ui/widgets/categories.dart';
-import 'package:healthy_food_app/features/home/ui/widgets/popular_item_view.dart';
-import 'package:healthy_food_app/features/home/ui/widgets/offer_item_view.dart';
 import 'package:healthy_food_app/core/widgets/search_field.dart';
+import 'package:healthy_food_app/features/home/ui/widgets/categories.dart';
+import 'package:healthy_food_app/features/home/ui/widgets/offer_item_view.dart';
+import 'package:healthy_food_app/features/home/ui/widgets/popular_item_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

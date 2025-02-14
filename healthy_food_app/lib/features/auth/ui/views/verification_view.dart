@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthy_food_app/core/utils/app_colors.dart';
@@ -19,10 +20,12 @@ class VerificationView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Gap(60),
-            Center(
-              child: Image.asset(
-                Assets.assetsImagesAppLogo,
-                height: 70,
+            FlipInY(
+              child: Center(
+                child: Image.asset(
+                  Assets.assetsImagesAppLogo,
+                  height: 70,
+                ),
               ),
             ),
             Gap(70),
