@@ -46,6 +46,10 @@ class Assets {
   /// assets/images/google_ic.png
   static const String assetsImagesGoogleIc = "assets/images/google_ic.png";
 
+  /// Assets for assetsImagesGreenSalad
+  /// assets/images/green_salad.png
+  static const String assetsImagesGreenSalad = "assets/images/green_salad.png";
+
   /// Assets for assetsImagesGrillPalace
   /// assets/images/grill_palace.png
   static const String assetsImagesGrillPalace = "assets/images/grill_palace.png";

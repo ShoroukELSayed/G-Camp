@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthy_food_app/core/utils/app_colors.dart';
 import 'package:healthy_food_app/core/utils/app_styles.dart';
+import 'package:healthy_food_app/features/cart/ui/views/added_items_view.dart';
 import 'package:healthy_food_app/features/cart/ui/widgets/custom_app_bar.dart';
 import 'package:healthy_food_app/features/cart/ui/widgets/ingredients.dart';
 
@@ -73,18 +74,23 @@ class CartView extends StatelessWidget {
             Positioned(
               bottom: 7,
               right: 0,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.primaryColor,
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  child: Text(
-                    'Add to cart',
-                    style: AppStyles.medium24.copyWith(
-                      color: Colors.white,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, AddedItemsView.id);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryColor,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 12),
+                    child: Text(
+                      'Add to cart',
+                      style: AppStyles.medium24.copyWith(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
