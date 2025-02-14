@@ -1,9 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:luxira_app/features/login/ui/views/login_view.dart';
+import 'package:luxira_app/features/auth/ui/views/forgot_password.dart';
+import 'package:luxira_app/features/auth/ui/views/login_view.dart';
 import 'package:luxira_app/features/onboarding/ui/views/onborading_view.dart';
-import 'package:luxira_app/features/register/ui/views/register_view.dart';
+import 'package:luxira_app/features/auth/ui/views/register_view.dart';
 import 'package:luxira_app/features/splash/ui/views/splash_view.dart';
 
 void main() {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         LoginView.id: (context) => LoginView(),
         SplashView.id: (context) => SplashView(),
         RegisterView.id: (context) => RegisterView(),
+        ForgotPassword.id:(context)=> ForgotPassword(),
       },
       initialRoute: SplashView.id,
     );
