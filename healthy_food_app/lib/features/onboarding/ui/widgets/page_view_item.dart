@@ -5,7 +5,7 @@ import 'package:healthy_food_app/core/utils/app_colors.dart';
 import 'package:healthy_food_app/core/utils/app_styles.dart';
 import 'package:healthy_food_app/features/onboarding/data/page_view_item_model.dart';
 import 'package:healthy_food_app/core/widgets/custom_elevated_button.dart';
-import 'package:healthy_food_app/features/welcom/ui/welcom_view.dart';
+import 'package:healthy_food_app/features/welcom/ui/views/welcom_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageViewItem extends HookWidget {

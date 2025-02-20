@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthy_food_app/features/auth/ui/views/login_view.dart';
+import 'package:healthy_food_app/features/profile/data/settings_option_model.dart';
 import 'package:healthy_food_app/features/profile/ui/widgets/profile_details.dart';
 import 'package:healthy_food_app/features/profile/ui/widgets/settings_option.dart';
 
@@ -21,39 +22,55 @@ class ProfileView extends StatelessWidget {
           children: [
             ProfileDetails(),
             SettingsOption(
-              option: 'Dietary Preferences',
-              icon: Icons.arrow_forward_ios,
+              settingsOptionModel: SettingsOptionModel(
+                option: 'Dietary Preferences',
+                icon: Icons.arrow_forward_ios,
+              ),
             ),
             SettingsOption(
-              option: 'My Orders',
-              icon: Icons.arrow_forward_ios,
+              settingsOptionModel: SettingsOptionModel(
+                option: 'My Orders',
+                icon: Icons.arrow_forward_ios,
+              ),
             ),
             SettingsOption(
-              option: 'Addresses',
-              icon: Icons.arrow_forward_ios,
+              settingsOptionModel: SettingsOptionModel(
+                option: 'Addresses',
+                icon: Icons.arrow_forward_ios,
+              ),
             ),
             SettingsOption(
-              option: 'Payment Methods',
-              icon: Icons.arrow_forward_ios,
+              settingsOptionModel: SettingsOptionModel(
+                option: 'Payment Methods',
+                icon: Icons.arrow_forward_ios,
+              ),
             ),
             SettingsOption(
-              option: 'Promo Codes',
-              icon: Icons.arrow_forward_ios,
+              settingsOptionModel: SettingsOptionModel(
+                option: 'Promo Codes',
+                icon: Icons.arrow_forward_ios,
+              ),
             ),
             SettingsOption(
-              option: 'Support',
-              icon: Icons.arrow_forward_ios,
+              settingsOptionModel: SettingsOptionModel(
+                option: 'Support',
+                icon: Icons.arrow_forward_ios,
+              ),
             ),
             SettingsOption(
-              option: 'Log out',
-              icon: Icons.logout,
-              onTap: () {
+              settingsOptionModel: SettingsOptionModel(
+                option: 'Log out',
+                icon:Icons.logout,
+                onTap: () {
                 Navigator.pushNamed(context, LoginView.id);
               },
+              ),
             ),
             SettingsOption(
-              option: 'Deleat Account',
-              icon: Icons.delete,
+              settingsOptionModel: SettingsOptionModel(
+                option: 'Deleat Account',
+                icon: Icons.delete,
+              ),
             ),
           ],
         ),

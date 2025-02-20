@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:healthy_food_app/core/utils/app_images.dart';
 import 'package:healthy_food_app/core/utils/app_styles.dart';
 import 'package:healthy_food_app/core/widgets/search_field.dart';
+import 'package:healthy_food_app/core/helper/offer_item_model.dart';
 import 'package:healthy_food_app/features/home/ui/widgets/offer_item.dart';
 
 class PopularRestarants extends StatelessWidget {
@@ -25,30 +26,36 @@ class PopularRestarants extends StatelessWidget {
             SearchField(),
             Gap(20),
             OfferItem(
-              name: 'lean & Green',
-              image: Assets.assetsImagesLeanAndGreen,
-              offer: '    Offer    ',
-              detailsOffer: 'Get 40%',
-              color: Color(0xffFFBDA7).withAlpha(150),
-              details: '55 Min',
+              offerItemModel: OfferItemModel(
+                name: 'lean & Green',
+                image: Assets.assetsImagesLeanAndGreen,
+                offer: '    Offer    ',
+                detailsOffer: 'Get 40%',
+                color: Color(0xffFFBDA7).withAlpha(150),
+                details: '55 Min',
+              ),
             ),
             Gap(20),
             OfferItem(
-              name: 'Boogie Veggie',
-              image: Assets.assetsImagesBoogieVeggie,
-              offer: '    Offer    ',
-              detailsOffer: 'Get 40%',
-              color: Color(0xffFFBDA7).withAlpha(200),
-              details: '20 Min',
+             offerItemModel:  OfferItemModel(
+                name: 'Boogie Veggie',
+                image: Assets.assetsImagesBoogieVeggie,
+                offer: '    Offer    ',
+                detailsOffer: 'Get 40%',
+                color: Color(0xffFFBDA7).withAlpha(220),
+                details: '20 Min',
+              ),
             ),
             Gap(20),
             OfferItem(
-              name: 'Veganeno',
-              image: Assets.assetsImagesVeganeno,
-              offer: '    Offer    ',
-              detailsOffer: 'Get 40%',
-              color: Color(0xffFFBDA7).withAlpha(150),
-              details: '55 Min',
+               offerItemModel: OfferItemModel(
+                name: 'Veganeno',
+                image: Assets.assetsImagesVeganeno,
+                offer: '    Offer    ',
+                detailsOffer: 'Get 40%',
+                color: Color(0xffFFBDA7).withAlpha(150),
+                details: '55 Min',
+              ),
             ),
           ],
         ),

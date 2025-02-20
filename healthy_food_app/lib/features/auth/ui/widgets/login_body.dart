@@ -1,9 +1,6 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:healthy_food_app/core/helper/form_validator.dart';
-import 'package:healthy_food_app/core/services/login_request.dart';
 import 'package:healthy_food_app/core/utils/app_colors.dart';
 import 'package:healthy_food_app/core/utils/app_images.dart';
 import 'package:healthy_food_app/core/utils/app_styles.dart';
@@ -12,9 +9,8 @@ import 'package:healthy_food_app/core/widgets/custom_elevated_button.dart';
 import 'package:healthy_food_app/core/widgets/custom_text_form_field.dart';
 import 'package:healthy_food_app/core/widgets/section_divider.dart';
 import 'package:healthy_food_app/features/auth/ui/views/register_view.dart';
+import 'package:healthy_food_app/features/auth/ui/views/verification_view.dart';
 
-import '../../../../main_view.dart';
-import '../../logic/login_cubit.dart';
 
 // ignore: must_be_immutable
 class LoginBody extends StatefulWidget {
@@ -35,38 +31,39 @@ class _LoginBodyState extends State<LoginBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
-        if (state is LoginSuccess) {
-          Navigator.pushNamed(context, MainView.id);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'success',
-                message: 'Login done Successfully!',
-                contentType: ContentType.success,
-              ),
-            ),
-          );
-        } else if (state is LoginError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'On Snap!',
-                message: state.message,
-                contentType: ContentType.failure,
-              ),
-            ),
-          );
-        }
-      },
-      builder: (context, state) {
+    // return BlocConsumer<LoginCubit, LoginState>(
+    //   listener: (context, state) {
+    //     if (state is LoginSuccess) {
+    //       Navigator.pushNamed(context, MainView.id);
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(
+    //           elevation: 0,
+    //           behavior: SnackBarBehavior.floating,
+    //           backgroundColor: Colors.transparent,
+    //           content: AwesomeSnackbarContent(
+    //             title: 'success',
+    //             message: 'Login done Successfully!',
+    //             contentType: ContentType.success,
+    //           ),
+    //         ),
+    //       );
+    //     } else if (state is LoginError) {
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(
+    //           elevation: 0,
+    //           behavior: SnackBarBehavior.floating,
+    //           backgroundColor: Colors.transparent,
+    //           content: AwesomeSnackbarContent(
+    //             title: 'On Snap!',
+    //             message: state.message,
+    //             contentType: ContentType.failure,
+    //           ),
+    //         ),
+    //       );
+    //       print(state.message);
+    //     }
+    //   },
+    //   builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Form(
@@ -113,18 +110,17 @@ class _LoginBodyState extends State<LoginBody> {
                 const Gap(20),
                 CustomElevatedButton(
                   colorButton: AppColors.primaryColor,
-                  name: state is LoginLoading ? 'Logging in...' : 'Log In',
-                  onPressed: state is LoginLoading
-                      ? null
-                      : () async {
+                  name:  'Log In',
+                  onPressed: () async {
                           if (key.currentState!.validate()) {
                             key.currentState!.save();
-                            final loginRequest = LoginRequest(
-                              email: email,
-                              password: password,
-                            );
+                            Navigator.pushNamed(context, VerificationView.id);
+                            // final loginRequest = LoginRequest(
+                            //   email: email,
+                            //   password: password,
+                            // );
 
-                            context.read<LoginCubit>().loginUser(loginRequest);
+                            // context.read<LoginCubit>().loginUser(loginRequest);
                           } else {
                             setState(() {
                               autovalidateMode = AutovalidateMode.always;
@@ -180,7 +176,5 @@ class _LoginBodyState extends State<LoginBody> {
             ),
           ),
         );
-      },
-    );
   }
 }

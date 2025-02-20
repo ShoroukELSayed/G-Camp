@@ -14,7 +14,7 @@ import 'package:healthy_food_app/features/onboarding/ui/views/onborading_view.da
 import 'package:healthy_food_app/features/popular%20restarants/ui/views/popular_restarants_view.dart';
 import 'package:healthy_food_app/features/presentaion/view_model/food_cubit/food_cubit.dart';
 import 'package:healthy_food_app/features/splash/ui/views/splash_view.dart';
-import 'package:healthy_food_app/features/welcom/ui/welcom_view.dart';
+import 'package:healthy_food_app/features/welcom/ui/views/welcom_view.dart';
 import 'package:healthy_food_app/main_view.dart';
 
 import 'core/services/shared_pref_helper.dart';

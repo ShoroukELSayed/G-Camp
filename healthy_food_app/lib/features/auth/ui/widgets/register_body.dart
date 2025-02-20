@@ -1,10 +1,6 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:healthy_food_app/core/helper/form_validator.dart';
-import 'package:healthy_food_app/core/services/register_request.dart';
-import 'package:healthy_food_app/core/services/shared_pref_helper.dart';
 import 'package:healthy_food_app/core/utils/app_colors.dart';
 import 'package:healthy_food_app/core/utils/app_images.dart';
 import 'package:healthy_food_app/core/utils/app_styles.dart';
@@ -14,7 +10,6 @@ import 'package:healthy_food_app/core/widgets/section_divider.dart';
 import 'package:healthy_food_app/features/auth/ui/views/login_view.dart';
 import 'package:healthy_food_app/features/auth/ui/views/verification_view.dart';
 
-import '../../logic/register_cubit.dart';
 
 // ignore: must_be_immutable
 class RegisterBody extends StatefulWidget {
@@ -36,38 +31,39 @@ class _RegisterBodyState extends State<RegisterBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
-      listener: (context, state) {
-        if (state is RegisterSuccess) {
-          Navigator.pushNamed(context, VerificationView.id);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'success',
-                message: 'Register done Successfully!',
-                contentType: ContentType.success,
-              ),
-            ),
-          );
-        } else if (state is RegisterError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'On Snap!',
-                message: state.message,
-                contentType: ContentType.failure,
-              ),
-            ),
-          );
-        }
-      },
-      builder: (context, state) {
+    // return BlocConsumer<RegisterCubit, RegisterState>(
+    //   listener: (context, state) {
+    //     if (state is RegisterSuccess) {
+    //       Navigator.pushNamed(context, VerificationView.id);
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(
+    //           elevation: 0,
+    //           behavior: SnackBarBehavior.floating,
+    //           backgroundColor: Colors.transparent,
+    //           content: AwesomeSnackbarContent(
+    //             title: 'success',
+    //             message: 'Register done Successfully!',
+    //             contentType: ContentType.success,
+    //           ),
+    //         ),
+    //       );
+    //     } else if (state is RegisterError) {
+    //       ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(
+    //           elevation: 0,
+    //           behavior: SnackBarBehavior.floating,
+    //           backgroundColor: Colors.transparent,
+    //           content: AwesomeSnackbarContent(
+    //             title: 'On Snap!',
+    //             message: state.message,
+    //             contentType: ContentType.failure,
+    //           ),
+    //         ),
+    //       );
+    //       print(state.message);
+    //     }
+    //   },
+    //   builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Form(
@@ -153,26 +149,25 @@ class _RegisterBodyState extends State<RegisterBody> {
                 const Gap(20),
                 CustomElevatedButton(
                   colorButton: AppColors.primaryColor,
-                  name: state is RegisterLoading ? 'Loading...' : 'Sign Up',
-                  onPressed: state is RegisterLoading
-                      ? null
-                      : () async {
+                  name: 'Sign Up',
+                  onPressed: () async {
                           if (key.currentState!.validate()) {
                             key.currentState!.save();
-                            final registerRequest = RegisterRequest(
-                              name: name,
-                              phone: phone,
-                              email: email,
-                              password: password!,
-                              passwordConfirmation: confirmPassword,
-                              address: 'Zagazig',
-                            );
-                            await SharedPrefHelper.setString('name', name);
-                            await SharedPrefHelper.setString('phone', phone);
+                            Navigator.pushNamed(context, VerificationView.id);
+                            // final registerRequest = RegisterRequest(
+                            //   name: name,
+                            //   phone: phone,
+                            //   email: email,
+                            //   password: password!,
+                            //   passwordConfirmation: confirmPassword,
+                            //   address: 'Zagazig',
+                            // );
+                            // await SharedPrefHelper.setString('name', name);
+                            // await SharedPrefHelper.setString('phone', phone);
 
-                            context
-                                .read<RegisterCubit>()
-                                .registerUser(registerRequest);
+                            // context
+                            //     .read<RegisterCubit>()
+                            //     .registerUser(registerRequest);
                           } else {
                             setState(() {
                               autovalidateMode = AutovalidateMode.always;
@@ -228,7 +223,5 @@ class _RegisterBodyState extends State<RegisterBody> {
             ),
           ),
         );
-      },
-    );
-  }
+      }
 }

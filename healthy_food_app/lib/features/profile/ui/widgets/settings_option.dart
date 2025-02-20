@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:healthy_food_app/core/utils/app_colors.dart';
 import 'package:healthy_food_app/core/utils/app_styles.dart';
+import 'package:healthy_food_app/features/profile/data/settings_option_model.dart';
 
 class SettingsOption extends StatelessWidget {
   const SettingsOption({
-    super.key,
-    required this.icon,
-    this.onTap,
-    required this.option,
+    super.key, required this.settingsOptionModel,
   });
 
-  final String option;
-  final IconData icon;
-  final void Function()? onTap;
+  final SettingsOptionModel settingsOptionModel;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          option,
+          settingsOptionModel.option,
           style: AppStyles.medium18.copyWith(
             color: AppColors.secondaryColor,
           ),
         ),
         Spacer(),
-        GestureDetector(
-          onTap: onTap,
-          child: Icon(
-            icon,
+        IconButton(
+          onPressed: settingsOptionModel.onTap,
+          icon: Icon(
+            settingsOptionModel.icon,
             size: 20,
-            color: icon == Icons.delete ? Colors.red : Colors.black,
-          ),
+            color: settingsOptionModel.icon == Icons.delete ? Colors.red : Colors.black,
+          ), 
         )
       ],
     );

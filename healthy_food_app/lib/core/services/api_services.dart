@@ -23,7 +23,7 @@ class ApiServices {
   Future<String> loginUser(LoginRequest loginRequest) async {
     try {
       final response = await _dio.post(
-        '$_baseUrl/login',
+        'https://orientonline.info/api/login',
         data: loginRequest.toJson(),
         options: Options(
           headers: {

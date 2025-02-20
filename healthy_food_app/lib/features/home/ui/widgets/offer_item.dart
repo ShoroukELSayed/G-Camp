@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:healthy_food_app/core/helper/offer_item_model.dart';
 import 'package:healthy_food_app/features/presentaion/views/all_foods_view.dart';
 
 import '../../../../core/utils/app_styles.dart';
 
 class OfferItem extends StatelessWidget {
   const OfferItem({
-    super.key,
-    required this.name,
-    required this.image,
-    required this.offer,
-    required this.detailsOffer,
-    required this.color,
-    required this.details,
+    super.key, required this.offerItemModel,
   });
 
-  final String name;
-  final String image;
-  final String offer;
-  final String details;
-  final String detailsOffer;
-  final Color color;
+  final OfferItemModel offerItemModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -39,7 +29,7 @@ class OfferItem extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    image,
+                    offerItemModel.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -52,7 +42,7 @@ class OfferItem extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
                           bottomRight: Radius.circular(20)),
-                      color: color,
+                      color: offerItemModel.color,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -63,12 +53,12 @@ class OfferItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            offer,
+                            offerItemModel.offer,
                             style: AppStyles.medium16,
                           ),
                           Gap(10),
                           Text(
-                            detailsOffer,
+                            offerItemModel.detailsOffer,
                             style: AppStyles.medium12,
                           ),
                         ],
@@ -82,12 +72,12 @@ class OfferItem extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  name,
+                  offerItemModel.name,
                   style: AppStyles.medium18,
                 ),
                 Spacer(),
                 Text(
-                  details,
+                  offerItemModel.details,
                   style: AppStyles.regular14,
                 ),
               ],
